@@ -25,3 +25,7 @@ Run the server in local
 python manage.py runserver
 ```
 
+For Postman Collection :
+
+Import OrderTrackingService.postman_collection.json file
+
