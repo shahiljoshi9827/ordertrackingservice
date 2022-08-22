@@ -220,7 +220,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"store\": 1,\n    \"items\": [\n        {\n            \"product\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"product\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"user\": 1\n}",
+					"raw": "{\n    \"store\": 1,\n    \"items\": [\n        {\n            \"product\": 1,\n            \"quantity\": 3\n        },\n        {\n            \"product\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"user\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -331,7 +331,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"store\": 1,\n    \"items\": [\n        {\n            \"product\": 1,\n            \"quantity\": 4\n        },\n        {\n            \"product\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"user\": 1\n}",
+					"raw": "{\n    \"store\": 1,\n    \"items\": [\n        {\n            \"product\": 1,\n            \"quantity\": 4\n        },\n        {\n            \"product\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"user\": 1,\n    \"status\":\"TRANSIT\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -529,6 +529,76 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"order\": [\n        {\n            \"id\": 19,\n            \"user_id\": 1,\n            \"store_id\": 1,\n            \"total\": 850,\n            \"created_at\": \"2022-08-21T15:37:28.764044Z\",\n            \"updated_at\": \"2022-08-21T15:37:28.764079Z\",\n            \"status\": \"PACKED\"\n        }\n    ],\n    \"items\": [\n        {\n            \"product_id__name\": \"MangoPulp\",\n            \"quantity\": 4,\n            \"amount\": 800\n        },\n        {\n            \"product_id__name\": \"JamunPulp\",\n            \"quantity\": 5,\n            \"amount\": 50\n        }\n    ]\n}"
+				},
+				{
+					"name": "View Order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/order/19/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"order",
+								"19",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 22 Aug 2022 04:38:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.10"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "296"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"order\": [\n        {\n            \"id\": 19,\n            \"user_id\": 1,\n            \"store_id\": 1,\n            \"total\": 850,\n            \"created_at\": \"2022-08-21T15:37:28.764044Z\",\n            \"updated_at\": \"2022-08-21T15:37:28.764079Z\",\n            \"status\": \"TRANSIT\"\n        }\n    ],\n    \"items\": [\n        {\n            \"product_id__name\": \"MangoPulp\",\n            \"quantity\": 4,\n            \"amount\": 800\n        },\n        {\n            \"product_id__name\": \"JamunPulp\",\n            \"quantity\": 5,\n            \"amount\": 50\n        }\n    ]\n}"
 				}
 			]
 		}

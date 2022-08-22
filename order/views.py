@@ -2,12 +2,15 @@ from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import Http404
 from rest_framework import generics, mixins, status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Order, OrderItem, Store, Product
 
 
 # Create your views here.
 class OrderView(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+
+    permission_classes = IsAuthenticated
 
     def get_queryset(self):
         return OrderItem.objects.all()
@@ -60,9 +63,12 @@ class OrderDetailsView(generics.GenericAPIView, mixins.RetrieveModelMixin, mixin
 
     def put(self, request, pk, *args, **kwargs):
         store = Store.objects.get(id=request.data['store'])
+        order_status = request.data.get('status')
         order = Order.objects.get(id=pk)
         order_item = OrderItem.objects.filter(order=order)
         order.store = store
+        if order_status:
+            order.status = order_status
         order_item.delete()
         for i in request.data['items']:
             OrderItem.objects.create(order=order, product=Product.objects.get(id=i.get('product')),
